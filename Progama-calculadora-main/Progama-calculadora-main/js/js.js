@@ -1,11 +1,11 @@
 var btn = document.querySelectorAll(".key li"),
-input = document.querySelector(".input-valor"),
-operador = document.querySelectorAll(".operador");
+    input = document.querySelector(".input-valor"),
+    operador = document.querySelectorAll(".operador");
 
-for(var i = 0; i < btn.length; ++ ) {
+for(var i = 0; i < btn.length; i++ ){
     document.onkeypress = function(event){
         for(var e=0; e <= 10; e++){
-            if(key === (48=e)){
+            if(key === (48+e)){
                 input.innerHTML += e;
             }
         }
@@ -45,8 +45,35 @@ case 99:
     break;
     default:
     break;
-
-        }
     }
 };
+
+btn [i].addEventListener ('click', function(){
+    var btnVal = this.innerHTML,
+        inputval = input.innerHTML;
+    console.log(btnVal)
+
+    switch(btnVal){
+        case"c":
+        input.innerHTML = ""
+        break;
+    case"=":
+    
+    var equacao = inputval;
+        
+    if(equacao){
+        try{
+            input.innerHTML = eval(equacao);
+        }catch(e){
+            alert('Erro na Expressão')
+        }
+    }
+    break;
+    default:
+        input.innerHTML += btnVal;
+        break;
+    }
+});
+
+}
 
